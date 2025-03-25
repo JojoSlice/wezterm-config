@@ -1,7 +1,5 @@
--- Pull in the wezterm API
 local wezterm = require("wezterm")
 
--- This will hold the configuration.
 local config = wezterm.config_builder()
 
 -- Font
@@ -10,7 +8,7 @@ config.line_height = 1.2
 config.font = wezterm.font("Cascadia Code")
 
 -- Color scheme:
-config.color_scheme = "Shaman (Gogh)"
+config.color_scheme = "Alien Blood (Gogh)"
 
 -- Appearance:
 config.window_decorations = "RESIZE"
@@ -60,6 +58,36 @@ config.keys = {
 		key = "Tab",
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.ActivateTabRelative(-1),
+	},
+	{
+		key = "p",
+		mods = "CTRL",
+		action = wezterm.action.PasteFrom("Clipboard"),
+	},
+	{
+		key = "y",
+		mods = "CTRL",
+		action = wezterm.action.CopyTo("ClipboardAndPrimarySelection"),
+	},
+	{
+		key = "1",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.SendString("git add .\n"),
+	},
+	{
+		key = "2",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.SendString("git commit -m"),
+	},
+	{
+		key = "3",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.SendString("git push\n"),
+	},
+	{
+		key = "4",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.SendString("git pull\n"),
 	},
 }
 
